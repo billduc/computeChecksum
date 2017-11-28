@@ -40,8 +40,7 @@ void ComputeAckPshChecksum(struct tcphdr *tcp_header, struct iphdr *ip_header, c
     
     strncpy(payload, data, len);
     
-    tcp_header->check = ( cksum((u_short*) packet, sizeof(struct pseudo_header_t) +
-              packet_size) );
+    tcp_header->check = ( cksum((u_short*) packet, sizeof(struct pseudo_header_t) + packet_size) );
 
     free(packet);
     return ;
